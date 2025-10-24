@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "branchly"
+version = "0.1.0"
+description = "Transform long-form YouTube videos into multi-platform content"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = ["tests"]
