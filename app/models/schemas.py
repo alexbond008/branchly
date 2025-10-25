@@ -14,3 +14,4 @@ class GeneratedAssets(BaseModel):
     hashtags: List[str]
     linkedin_post: str
     twitter_post: str
+    
