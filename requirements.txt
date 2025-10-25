@@ -1,3 +1,5 @@
 dotenv
 pydantic
 yt-dlp
+openai-whisper
+anthropic
