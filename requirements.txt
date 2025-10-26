@@ -3,3 +3,5 @@ pydantic
 yt-dlp
 openai-whisper
 anthropic
+fastapi
+uvicorn
