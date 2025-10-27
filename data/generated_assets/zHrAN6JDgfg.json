@@ -1,0 +1,31 @@
+{
+  "video_url": "https://www.youtube.com/",
+  "title_suggestions": [
+    "My First Hackathon Experience: Building a Journey Radar App",
+    "24-Hour Hackathon Challenge: From Zero to Demo",
+    "First Hackathon Ever: Creating a Real-Time Traffic Map"
+  ],
+  "timestamps": [
+    "00:00 - Arriving at first hackathon with full suitcase",
+    "01:30 - Meeting teammates at main conference area",
+    "03:00 - Team brainstorming session on Google Docs",
+    "04:15 - Ideation: Journey Radar project using public transport mapping",
+    "06:00 - Setting up GitHub repo and beginning development",
+    "08:30 - Building front-end with traffic flag feature",
+    "10:45 - Backend technical difficulties and issues",
+    "14:30 - Late-night grind with 11+ hours remaining",
+    "18:00 - Post-sleep update with submission deadline approaching",
+    "20:30 - Final submission and waiting for jury results",
+    "22:00 - Not selected for finals, reflections on the experience"
+  ],
+  "description": "A first-time hackathon experience following a software engineer and his team as they build Journey Radar, an app that uses graph algorithms to predict commute times and flag traffic incidents on public transport routes. Despite technical challenges and only 5 hours of sleep, the team powers through a 24-hour coding marathon to submit their project.",
+  "hashtags": [
+    "hackathon",
+    "softwareengineering",
+    "coding",
+    "journey-radar",
+    "firsthackathon"
+  ],
+  "linkedin_post": "Just completed my first hackathon! \ud83d\ude80 Teamed up with talented engineers to build Journey Radar, a real-time public transport mapping application that predicts commute times and flags traffic incidents using graph-based algorithms. Despite backend challenges and only 5 hours of sleep, we shipped a working prototype in 24 hours.\n\nThe experience taught me more about teamwork, problem-solving under pressure, and shipping products than months of solo coding. While we didn't make the finals, the journey itself was the victory\u2014I feel like a winner.\n\nThinking of attending your first hackathon? Do it. You'll surprise yourself with what you can build.",
+  "twitter_post": "Just survived my first hackathon! Built Journey Radar (real-time transit + traffic mapping) with an incredible team in 24 hours. 5 hours sleep, multiple technical fails, but we shipped it. Didn't hit finals, but felt like a winner. #Hackathon #SoftwareEngineering"
+}
