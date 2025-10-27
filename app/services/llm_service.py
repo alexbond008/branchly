@@ -20,8 +20,11 @@ def _extract_json(text: str) -> Dict[str, Any]:
         return json.loads(substring)
 
 
-def generate_assets(youtube_url: str, transcript: dict) -> GeneratedAssets:
-    """Generate structured assets from a transcript and return a validated GeneratedAssets model."""
+def generate_assets(youtube_url: str, transcript: str) -> GeneratedAssets:
+    """Generate structured assets from a transcript and return a validated GeneratedAssets model.
+
+    The pipeline passes the raw transcript string; keep the contract simple and accept a string.
+    """
     load_dotenv()
 
     client = Anthropic(api_key=os.environ.get("CLAUDE_API_KEY"))
@@ -42,7 +45,7 @@ def generate_assets(youtube_url: str, transcript: dict) -> GeneratedAssets:
 
     Transcript:
     ----
-{transcript["transcript"]}
+{transcript}
 ----
 """
 
@@ -65,10 +68,18 @@ def generate_assets(youtube_url: str, transcript: dict) -> GeneratedAssets:
 
     parsed.setdefault("video_url", youtube_url)
 
+    # Validate into the GeneratedAssets model. Support both pydantic v2 and v1 APIs.
     try:
-        assets = GeneratedAssets.model_validate(parsed)
+        if hasattr(GeneratedAssets, "model_validate"):
+            assets = GeneratedAssets.model_validate(parsed)
+        elif hasattr(GeneratedAssets, "parse_obj"):
+            assets = GeneratedAssets.parse_obj(parsed)
+        else:
+            assets = GeneratedAssets(**parsed)
     except Exception as exc:
-        raise RuntimeError(f"LLM output failed GeneratedAssets validation: {exc}\nParsed JSON: {json.dumps(parsed, indent=2)}\nRaw LLM output: {raw_text}")
+        raise RuntimeError(
+            f"LLM output failed GeneratedAssets validation: {exc}\nParsed JSON: {json.dumps(parsed, indent=2)}\nRaw LLM output: {raw_text}"
+        )
 
     return assets
 

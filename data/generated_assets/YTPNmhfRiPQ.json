@@ -1,0 +1,30 @@
+{
+  "video_url": "https://www.youtube.com/watch",
+  "title_suggestions": [
+    "Electrical Engineering vs Computer Science: Key Differences Explained",
+    "What I Wish I Knew: EE vs CS Degree Comparison",
+    "Electrical Engineering or Computer Science? A Recent Graduate's Honest Review"
+  ],
+  "timestamps": [
+    "00:00 Introduction and background",
+    "00:45 Similarities between EE and CS",
+    "02:15 Shared coursework: Math, programming, digital systems",
+    "03:30 Low-level embedded programming and robotics",
+    "04:45 Key differences: Databases and operating systems",
+    "05:45 Algorithms and machine learning theory gaps in EE",
+    "06:45 What EE has that CS doesn't: electronics and control theory",
+    "08:00 FPGAs, communications, and engineering management",
+    "09:15 Real-world career flexibility and specialization",
+    "10:30 Final advice and career path recommendations"
+  ],
+  "description": "Recent EE graduate Alex breaks down the key similarities and differences between Electrical Engineering and Computer Science degrees, covering coursework, career paths, and real-world applications. Whether you're choosing between the two fields or curious about each discipline, this video offers practical insights from someone who's experienced both.",
+  "hashtags": [
+    "ElectricalEngineering",
+    "ComputerScience",
+    "EngineeringEducation",
+    "CareerAdvice",
+    "STEM"
+  ],
+  "linkedin_post": "Just finished watching a fantastic breakdown of Electrical Engineering vs Computer Science by a recent grad who's lived both paths. Key takeaway: EE offers incredible flexibility\u2014you can pivot to software, physics, renewable energy, or FPGAs. CS is more specialized, requiring stronger commitment to coding from day one.\n\nIf you're undecided about your engineering path, EE gives you more optionality. Both degrees develop exceptional problem-solving skills, but the career trajectories diverge significantly. The skills you build\u2014data handling, systems thinking, coding\u2014are universally valuable, but the foundation matters.\n\nChoosing between them? Know yourself first.",
+  "twitter_post": "EE vs CS: EE gives flexibility across physics, software, renewable energy & FPGAs. CS is narrower but specialized. Both build amazing skills\u2014just pick based on your interests in coding & hardware. \ud83d\udd0c\ud83d\udcbb"
+}

@@ -9,5 +9,5 @@ def transcribe_audio(audio_info: dict) -> dict:
 
 if __name__ == "__main__":
     sample_file = "data/uploads/5a98fbe5-7b29-4fad-8602-2084c566f441.mp3"
-    transcription = transcribe_audio(sample_file)
+    transcription = transcribe_audio({"file_path": sample_file, "video_id": "sample"})
     print("Transcription:", transcription)
