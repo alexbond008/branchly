@@ -63,3 +63,5 @@ htmlcov/
 data/uploads/
 data/outputs/
 data/logs/
+
+.todo.md
