@@ -20,29 +20,29 @@ def _extract_json(text: str) -> Dict[str, Any]:
         return json.loads(substring)
 
 
-def generate_assets(youtube_url: str, transcript: str) -> GeneratedAssets:
+def generate_assets(youtube_url: str, transcript: dict) -> GeneratedAssets:
     """Generate structured assets from a transcript and return a validated GeneratedAssets model."""
     load_dotenv()
 
     client = Anthropic(api_key=os.environ.get("CLAUDE_API_KEY"))
 
     prompt = f"""
-You are an expert content strategist. Given the transcript of a YouTube video, return a single valid JSON object (and nothing else) matching the schema described below.
+    You are an expert content strategist. Given the transcript of a YouTube video, return a single valid JSON object (and nothing else) matching the schema described below.
 
-Schema (keys and types):
-- video_url: string (the original YouTube URL)
-- title_suggestions: array of 3 strings
-- timestamps: array of timestamp strings (format `MM:SS` or `HH:MM:SS`)
-- description: short string (1-3 sentences)
-- hashtags: array of strings (without '#', up to 5 items)
-- linkedin_post: string (1-3 short paragraphs, tailored for LinkedIn)
-- twitter_post: string (one tweet-length string, <= 280 chars)
+    Schema (keys and types):
+    - video_url: string (the original YouTube URL)
+    - title_suggestions: array of 3 strings
+    - timestamps: array of timestamp strings (format `MM:SS` or `HH:MM:SS`) with brief descriptions, covering key points in the video
+    - description: short string (1-3 sentences)
+    - hashtags: array of strings (without '#', up to 5 items)
+    - linkedin_post: string (1-3 short paragraphs, tailored for LinkedIn)
+    - twitter_post: string (one tweet-length string, <= 280 chars)
 
-Output only a single JSON object. Do not include commentary or markdown. Use the transcript below.
+    Output only a single JSON object. Do not include commentary or markdown. Use the transcript below.
 
-Transcript:
-----
-{transcript}
+    Transcript:
+    ----
+{transcript["transcript"]}
 ----
 """
 
@@ -66,7 +66,7 @@ Transcript:
     parsed.setdefault("video_url", youtube_url)
 
     try:
-        assets = GeneratedAssets.parse_obj(parsed)
+        assets = GeneratedAssets.model_validate(parsed)
     except Exception as exc:
         raise RuntimeError(f"LLM output failed GeneratedAssets validation: {exc}\nParsed JSON: {json.dumps(parsed, indent=2)}\nRaw LLM output: {raw_text}")
 

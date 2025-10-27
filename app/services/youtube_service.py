@@ -1,6 +1,7 @@
 import yt_dlp
 from pathlib import Path
 import uuid
+import re
 
 def download_audio(youtube_url: str, output_dir = "data/uploads") -> dict:
     """
@@ -13,8 +14,13 @@ def download_audio(youtube_url: str, output_dir = "data/uploads") -> dict:
         dict: A dictionary containing the file path and the video id.
     
     """
+    video_id: str = re.search(r"(?:v=|youtu\.be\/|embed\/)([\w-]{11})", youtube_url).group(1)
 
-    video_id = str(uuid.uuid4())
+    # Check if this video has already been downloaded based on data/uploads directory
+    if video_id in [p.stem for p in Path(output_dir).glob("*.mp3")]:
+        existing_file = Path(output_dir) / f"{video_id}.mp3"
+        return {"file_path": str(existing_file), "video_id": video_id}
+
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
     base_path = str(output_path / f"{video_id}")

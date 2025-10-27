@@ -18,10 +18,10 @@ def process_youtube_video(youtube_url: str) -> dict:
         GeneratedAssets: The generated assets for the video.
 
     """
-    audio_info = download_audio(youtube_url)
-    transcript = transcribe_audio(audio_info["file_path"])
+    audio_info: dict = download_audio(youtube_url)
+    transcript : dict = transcribe_audio(audio_info["file_path"])
     assets = generate_assets(youtube_url, transcript)
-    data = assets.dict()
+    data = assets.model_dump()
     storage.save_json("generated_assets", audio_info["video_id"], data)
 
     return data
